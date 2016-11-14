@@ -14,7 +14,8 @@ class Robot
     @f = Facing.new(f)
   end
 
-  def command(command)
+  def do_command(command)
+    return unless valid_command?(command)
     case command
     when 'REPORT'
       puts report
@@ -51,12 +52,18 @@ class Robot
     @y = y
   end
 
+  def valid_command?(command)
+    return true if @placed && %w(MOVE RIGHT LEFT REPORT).include?(command)
+    valid_place_command?(command) ? @placed = true : false
+  end
+
   def valid_location?(x, y)
     @table.valid_location?(x, y)
   end
 
   def place_text(command)
-    x, y, f = command.scan(/^PLACE ([0-5]),([0-5]),([A-Z]+)/)[0]
+    # relies on valid_place_command
+    x, y, f = command.scan(/^PLACE (\d+),(\d+),([A-Z]+)/)[0]
     place x.to_i, y.to_i, f
   end
 
@@ -65,5 +72,11 @@ class Robot
     @x = x
     @y = y
     @f.set(f)
+  end
+
+  private
+
+  def valid_place_command?(command)
+    !(command =~ /^PLACE [0-4],[0-4],(NORTH|EAST|SOUTH|WEST)$/).nil?
   end
 end

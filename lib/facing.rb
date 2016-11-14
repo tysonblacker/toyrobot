@@ -1,30 +1,38 @@
 # The Facing class holds the information regarding the direction in which the
 # robot is facing and how to change it's directions.
 class Facing
+  DIRECTIONS = %w(NORTH EAST SOUTH WEST).freeze
+  MOVE_RIGHT = 1
+  MOVE_LEFT = -1
+
   def initialize(direction = 'NORTH')
-    
-    @dirs = { 'NORTH' => 0, 'EAST' => 1, 'SOUTH' => 2, 'WEST' => 3 }
-    set(direction)
+    @facing = direction
   end
 
   def right
-    @facing = (@facing += 1) % 4
+    change_facing MOVE_RIGHT
   end
 
   def left
-    @facing = (@facing -= 1) % 4
+    change_facing MOVE_LEFT
   end
 
   def to_s
-    @dirs.key(@facing)
+    @facing
   end
 
   def set(f)
     return unless valid_facing?(f)
-    @facing = @dirs[f]
+    @facing = f
   end
 
   def valid_facing?(f)
-    @dirs.keys.include?(f)
+    DIRECTIONS.include?(f)
+  end
+
+  private
+
+  def change_facing(change)
+    @facing = DIRECTIONS[((DIRECTIONS.index(@facing) + change) % 4)]
   end
 end

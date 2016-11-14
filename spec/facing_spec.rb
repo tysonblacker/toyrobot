@@ -26,7 +26,7 @@ describe Facing do
   describe '.left' do
     context 'place on a board facing south and it asked to turn left'
     it 'equals east' do
-      @facing.set("SOUTH")
+      @facing.set('SOUTH')
       @facing.left
       expect(@facing.to_s).to eql('EAST')
     end
@@ -35,7 +35,7 @@ describe Facing do
   describe '.left' do
     context 'place on a board facing south and it asked to turn left'
     it 'equals east' do
-      @facing.set("SOUTH")
+      @facing.set('SOUTH')
       @facing.right
       expect(@facing.to_s).to eql('WEST')
     end
@@ -76,5 +76,4 @@ describe Facing do
       expect(@facing.to_s).to eql('NORTH')
     end
   end
-
 end

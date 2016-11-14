@@ -55,7 +55,7 @@ describe Robot do
       @robot.move
       expect(@robot.report).to eql('Output: 0,0,SOUTH')
     end
-  end  
+  end
 
   describe 'invalid space west' do
     context 'try to move from a valid space to invalid space'
@@ -74,5 +74,4 @@ describe Robot do
       expect(@robot.report).to eql('Output: 4,0,EAST')
     end
   end
-
 end
