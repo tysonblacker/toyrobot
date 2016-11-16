@@ -22,7 +22,6 @@ REPORT
 - `LEFT` and `RIGHT` rotates the robot 90 degrees in the specified direction without changing
 the position of the robot.
 - `REPORT` announces the `X,Y and F` of the robot. 
-- Provide test data to exercise the application.
 
 ### Implimentation notes:
 The file is assumed to have ASCII encoding.
@@ -40,6 +39,9 @@ The Gemfile includes rubocop, simplecov and rspec. The script had been tested us
 
 
 ### Usage
+
+Rob is short the the robot's name, Robert
+
 ```
   bundle exec bin/rob  data/commands.txt
   
