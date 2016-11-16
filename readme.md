@@ -25,10 +25,10 @@ the position of the robot.
 - Provide test data to exercise the application.
 
 ### Implimentation notes:
-It is assumed that at reasonable productionisation request is allow lower case commands.
 The file is assumed to have ASCII encoding.
 It is assumed that the PLACE command has only one space, that is PLACE 1, 2, NORTH is an invalid
-command
+command.
+All commands must me in upcase, all lower and mixed case commands will be ignored.
 
 
 ### Installation
@@ -41,7 +41,7 @@ The Gemfile includes rubocop, simplecov and rspec. The script had been tested us
 
 ### Usage
 ```
-  bundle exec bin/rob.rb commands.txt
+  bundle exec bin/rob  data/commands.txt
   
 ```
 
@@ -71,4 +71,6 @@ It is assumed that the example shown in requirements is using an interactive inp
    Output: 3,2,EAST
    Output: 3,0,SOUTH
 ```
+
+
 

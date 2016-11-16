@@ -63,6 +63,7 @@ class Robot
 
   def place_text(command)
     # relies on valid_place_command
+    # it is kind of doubling up with place.
     x, y, f = command.scan(/^PLACE (\d+),(\d+),([A-Z]+)/)[0]
     place x.to_i, y.to_i, f
   end

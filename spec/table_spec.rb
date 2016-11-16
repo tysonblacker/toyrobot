@@ -1,5 +1,7 @@
 require 'table'
 
+
+
 describe Table do
   before :each do
     @table = Table.new(5, 5)

@@ -22,15 +22,16 @@ class Facing
   end
 
   def set(f)
-    return unless valid_facing?(f)
+    return unless valid_facing?(f) # don't really need this as it is in the
+    # command validation regex
     @facing = f
   end
+
+  private
 
   def valid_facing?(f)
     DIRECTIONS.include?(f)
   end
-
-  private
 
   def change_facing(change)
     @facing = DIRECTIONS[((DIRECTIONS.index(@facing) + change) % 4)]
