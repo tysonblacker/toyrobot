@@ -31,7 +31,7 @@ class Robot
   end
 
   def report
-    "Output: #{@x},#{@y},#{@f}"
+    "#{@x},#{@y},#{@f}"
   end
 
   def move

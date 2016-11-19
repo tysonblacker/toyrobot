@@ -68,10 +68,10 @@ Rob is short the the robot's name, Robert
 It is assumed that the example shown in requirements is using an interactive input, this solution only uses a file.
 
 ```
-   Output: 1,2,EAST
-   Output: 2,2,EAST
-   Output: 3,2,EAST
-   Output: 3,0,SOUTH
+   1,2,EAST
+   2,2,EAST
+   3,2,EAST
+   3,0,SOUTH
 ```
 
 
