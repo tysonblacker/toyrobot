@@ -6,10 +6,10 @@ require_relative 'facing'
 # for the robot.
 class Parser
   def initialize(filename)
-    @rob_the_robot = Robot.new
+    @rob_the_robot = Robot.new(Table.new(5, 5), Facing.new)
 
     begin
-      File.open(filename, 'r').each_line do |line|
+      File.open(filename, 'r').each do |line|
         begin
           @rob_the_robot.do_command(line.strip)
         rescue Encoding::CompatibilityError

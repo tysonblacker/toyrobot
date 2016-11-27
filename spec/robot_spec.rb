@@ -1,8 +1,10 @@
 require 'robot'
+require 'table'
+require 'facing'
 
 describe Robot do
   before :each do
-    @robot = Robot.new
+    @robot = Robot.new(Table.new(5, 5), Facing.new)
   end
 
   describe '.new' do

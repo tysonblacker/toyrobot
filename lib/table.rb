@@ -1,7 +1,7 @@
 # The Table class is used just to hold the size of the table.
 
 # Have a seperate table class is in anticipation that things will happen
-# the the table. Like the size and obsticals as mentioned in the specification 
+# the the table. Like the size and obsticals as mentioned in the specification
 # that we didn't need to do.
 
 class Table

@@ -3,19 +3,18 @@ require_relative 'facing'
 
 # Robot class which holds the information about the robot
 class Robot
-  attr_accessor :x, :y, :f
-  attr_accessor :table, :placed
-
-  def initialize(x = 0, y = 0, f = 'NORTH')
+  def initialize(t, f)
     @placed = false
-    @table = Table.new(5, 5)
-    @x = x
-    @y = y
-    @f = Facing.new(f)
+    @table = t
+    @f = f
+    @x = 0
+    @y = 0
   end
 
   def do_command(command)
-    return unless valid_command?(command)
+    @placed ||= valid_place_command?(command)
+    return unless @placed
+    return unless valid_command?(command) || valid_place_command?(command)
     case command
     when 'REPORT'
       puts report
@@ -53,8 +52,7 @@ class Robot
   end
 
   def valid_command?(command)
-    return true if @placed && %w(MOVE RIGHT LEFT REPORT).include?(command)
-    valid_place_command?(command) ? @placed = true : false
+    @placed && %w(MOVE RIGHT LEFT REPORT).include?(command)
   end
 
   def valid_location?(x, y)
@@ -69,13 +67,11 @@ class Robot
   end
 
   def place(x, y, f)
-    return unless @table.valid_location?(x, y)
+    return unless valid_location?(x, y)
     @x = x
     @y = y
     @f.set(f)
   end
-
-  private
 
   def valid_place_command?(command)
     !(command =~ /^PLACE [0-4],[0-4],(NORTH|EAST|SOUTH|WEST)$/).nil?
