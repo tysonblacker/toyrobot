@@ -42,4 +42,5 @@ describe Parser do
         output("Invalid file encoding, must be ascii compatable\n").to_stdout
     end
   end
+
 end
